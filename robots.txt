@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kogroofs.github.io/sitemap.xml
+Sitemap: https://kogroofs.com/sitemap.xml
