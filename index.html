@@ -77,6 +77,14 @@
    "name": "Somervell County, TX"
   },
   {
+   "@type": "AdministrativeArea",
+   "name": "Kaufman County, TX"
+  },
+  {
+   "@type": "AdministrativeArea",
+   "name": "Hunt County, TX"
+  },
+  {
    "@type": "City",
    "name": "Fort Worth, TX"
   },
@@ -95,7 +103,36 @@
  ],
  "sameAs": [
   "https://www.facebook.com/kogroofing"
- ]
+ ],
+ "paymentAccepted": "Cryptocurrency, Bitcoin",
+ "knowsAbout": [
+  "Roof repair",
+  "Roof replacement",
+  "TPO roofing",
+  "EPDM roofing",
+  "Torch-down modified bitumen roofing",
+  "Metal roofing",
+  "Hail damage inspection",
+  "Emergency roof tarping",
+  "Seamless gutters",
+  "Siding",
+  "Interior repair after roof leaks",
+  "Roof condition reports"
+ ],
+ "makesOffer": [
+  {
+   "@type": "Offer",
+   "name": "Free roof inspection with written report",
+   "price": "0",
+   "priceCurrency": "USD",
+   "url": "https://kogroofs.com/free-inspection.html"
+  }
+ ],
+ "potentialAction": {
+  "@type": "ViewAction",
+  "name": "Check an address for hail",
+  "target": "https://kogroofs.com/hail-check.html"
+ }
 }
 </script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%231F2A5C'/%3E%3Cpath d='M8 34 32 12 56 34M15 30v22h34V30' fill='none' stroke='%23F2DE3A' stroke-width='6'/%3E%3C/svg%3E">
@@ -235,6 +272,12 @@ tbody th{color:var(--navy);font-stretch:110%}
 .btn-navy{background:var(--navy);color:var(--white)}
 .btn-navy:hover{border-color:var(--white)}
 .emergency :focus-visible{outline-color:var(--navy)}
+.edge{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:0 40px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.edge li{padding:18px 0;border-top:6px solid var(--yellow);margin:0 0 6px}
+.edge strong{display:block;color:var(--navy);font-stretch:112%;font-size:1.15rem;line-height:1.25;margin-bottom:4px}
+.edge strong a{text-decoration-thickness:2px}
+.edge span{color:var(--steel)}
+#why .actions{margin-top:22px}
 </style>
 </head>
 <body id="top">
@@ -248,7 +291,8 @@ tbody th{color:var(--navy);font-stretch:110%}
 </svg></a>
 <nav class="nav" aria-label="Main">
 <a href="#services">Services</a>
-<a href="#process">How it works</a>
+<a href="hail-check.html">Hail check</a>
+<a href="free-inspection.html">Free inspection</a>
 <a href="#guides">Guides</a>
 <a href="#about">About</a>
 <a href="#area">Service area</a>
@@ -276,8 +320,8 @@ tbody th{color:var(--navy);font-stretch:110%}
 <h1 id="hero-title">In our hearts, we want to do a good job.</h1>
 <p>We want to earn your business. KOG Roofing repairs and replaces roofs on commercial buildings and homes across Dallas-Fort Worth, and we'll tell you the truth about what yours needs.</p>
 <div class="actions">
-<a class="btn btn-yellow" href="tel:+18175502339">Call for an inspection</a>
-<a class="btn btn-line" href="#guides">Read the roof guides</a>
+<a class="btn btn-yellow" href="free-inspection.html">Request a free inspection</a>
+<a class="btn btn-line" href="hail-check.html">Did hail hit your home?</a>
 </div>
 </div>
 </div>
@@ -307,7 +351,10 @@ tbody th{color:var(--navy);font-stretch:110%}
 <li><strong><a href="metal-roofing.html">Metal roofs</a></strong><span>Standing seam and panel roofs built to last for decades.</span></li>
 <li><strong><a href="storm-damage.html#tarping">24-hour emergency tarping</a></strong><span>Storm opened up the roof? We cover it with tarps or synthetic underlayment to keep the water out, day or night.</span></li>
 <li><strong><a href="storm-damage.html">Storm damage inspections</a></strong><span>A written report with photos. You handle your claim with your insurance company; we don't act as your adjuster.</span></li>
-<li><strong>Gutters</strong><span>Installed with a new roof or on their own.</span></li>
+<li><strong>Seamless gutters</strong><span>5- and 6-inch gutters for homes, 7-inch for commercial buildings. Installed with a new roof or on their own.</span></li>
+<li><strong>Siding</strong><span>Repaired or replaced, including storm damage.</span></li>
+<li><strong>Interior repairs after a leak</strong><span>Sheetrock, paint, and floors, fixed by the same company that fixed the roof.</span></li>
+<li><strong>Roof condition reports</strong><span>Renewing your insurance or selling a home? A written report on the roof's age and condition, with photos.</span></li>
 </ul>
 </div>
 </div>
@@ -322,11 +369,26 @@ tbody th{color:var(--navy);font-stretch:110%}
 </div>
 </section>
 
-<section class="section" id="process" aria-labelledby="process-title">
+<section class="section" id="why" aria-labelledby="why-title">
+<div class="wrap">
+<h2 id="why-title">What you get with KOG</h2>
+<ul class="edge">
+<li><strong>The truth, in writing</strong><span>Every inspection comes with a written report, photos, and video. If you don't need a roof, we'll tell you, and show you why.</span></li>
+<li><strong><a href="hail-check.html">Hail check and hail alerts</a></strong><span>Look up your address against NOAA radar hail records, and sign up for a heads-up when hail hits near you.</span></li>
+<li><strong>One call, roof to interior</strong><span>Roof, gutters, siding, and the sheetrock, paint, and floors inside after a leak. One company and one contract, instead of three.</span></li>
+<li><strong>Roof condition reports</strong><span>For insurance renewals and home sales: the roof's age and condition, documented with photos.</span></li>
+<li><strong>Safety first on commercial and industrial sites</strong><span>Bobby also spent years in the oilfield as a designated safety leader, running job safety analyses, safety meetings, inspections, and incident investigations. Plants and industrial sites get a roofer who already works that way.</span></li>
+<li><strong>Pay with Bitcoin</strong><span>We accept Bitcoin and other cryptocurrency.</span></li>
+</ul>
+<div class="actions"><a class="btn btn-navy" href="free-inspection.html">Request a free inspection</a></div>
+</div>
+</section>
+
+<section class="section section-wash" id="process" aria-labelledby="process-title">
 <div class="wrap">
 <h2 id="process-title">How a job goes</h2>
 <ol class="steps">
-<li><div><strong>Inspection</strong><p>We get on the roof, and in the attic when needed, and photograph what we find.</p></div></li>
+<li><div><strong>Inspection</strong><p>We get on the roof, and in the attic when needed, and take photos and video of what we find.</p></div></li>
 <li><div><strong>Written report</strong><p>Photos, the cause of the problem, and whether it calls for a repair or a replacement.</p></div></li>
 <li><div><strong>Your decision</strong><p>Take your time. The report is yours to keep either way.</p></div></li>
 <li><div><strong>Written contract</strong><p>Scope, price, schedule, and warranty, spelled out before any work starts.</p></div></li>
@@ -336,7 +398,7 @@ tbody th{color:var(--navy);font-stretch:110%}
 </div>
 </section>
 
-<section class="section section-wash" id="guides" aria-labelledby="guides-title">
+<section class="section" id="guides" aria-labelledby="guides-title">
 <div class="wrap">
 <h2 id="guides-title">Roof guides</h2>
 <p class="lead">Straight answers to the questions building owners and homeowners ask most.</p>
@@ -349,7 +411,7 @@ tbody th{color:var(--navy);font-stretch:110%}
 </div>
 </section>
 
-<section class="section" id="about" aria-labelledby="about-title">
+<section class="section section-wash" id="about" aria-labelledby="about-title">
 <div class="wrap">
 <h2 id="about-title">About KOG Roofing</h2>
 <p>Bobby Roach started KOG Roofing in 2010 with a stack of work orders and business cards, and sold his first roof at sundown on his first day. Since then he has sold and run hundreds of jobs, from shingle re-roofs to TPO, EPDM, torch-down, and metal.</p>
@@ -357,10 +419,10 @@ tbody th{color:var(--navy);font-stretch:110%}
 </div>
 </section>
 
-<section class="section section-wash" id="area" aria-labelledby="area-title">
+<section class="section" id="area" aria-labelledby="area-title">
 <div class="wrap">
 <h2 id="area-title">Where we work</h2>
-<p class="lead">Based in Granbury, KOG Roofing works across the Dallas-Fort Worth Metroplex. We come to you: homes, shops, offices, warehouses, and churches in these twelve counties.</p>
+<p class="lead">Based in Granbury, KOG Roofing works across the Dallas-Fort Worth Metroplex. We come to you: homes, shops, offices, warehouses, and churches in these fourteen counties.</p>
 <ul class="areas">
 <li><strong><a href="fort-worth-roofing.html">Tarrant County</a></strong><span>Fort Worth, Arlington, Mansfield, Keller, Southlake, Colleyville, Grapevine, North Richland Hills, Benbrook</span></li>
 <li><strong><a href="dallas-roofing.html">Dallas County</a></strong><span>Dallas, Irving, Grand Prairie, Garland, Mesquite, Richardson</span></li>
@@ -374,6 +436,8 @@ tbody th{color:var(--navy);font-stretch:110%}
 <li><strong>Rockwall County</strong><span>Rockwall, Royse City, Heath, Fate</span></li>
 <li><strong>Erath County</strong><span>Stephenville, Dublin</span></li>
 <li><strong>Somervell County</strong><span>Glen Rose</span></li>
+<li><strong>Kaufman County</strong><span>Forney, Terrell, Kaufman, Crandall</span></li>
+<li><strong>Hunt County</strong><span>Greenville, Commerce, Caddo Mills, Quinlan</span></li>
 </ul>
 <p class="note" style="margin-top:22px">Just outside these counties? Call and ask. If we can do the job right, we'll come.</p>
 </div>
@@ -381,10 +445,11 @@ tbody th{color:var(--navy);font-stretch:110%}
 
 <section class="section contact" id="contact" aria-labelledby="contact-title">
 <div class="wrap">
-<h2 id="contact-title">Call for an inspection</h2>
+<h2 id="contact-title">Call, text, or send a request</h2>
 <p>Tell us whether it's a home or a commercial building, what you're seeing, and the best time to reach you.</p>
 <p><strong>Emergency? Call any time, day or night.</strong> If water is coming in, we'll come <a href="storm-damage.html#tarping">tarp the roof</a> and stop it.</p>
 <a class="phone-big" href="tel:+18175502339">(817) 550-2339</a>
+<div class="actions" style="margin:6px 0 18px"><a class="btn btn-yellow" href="free-inspection.html">Request a free inspection online</a></div>
 <p class="email">Email: <a href="mailto:kogroofs@gmail.com">kogroofs@gmail.com</a></p>
 </div>
 </section>
@@ -394,6 +459,8 @@ tbody th{color:var(--navy);font-stretch:110%}
 <div class="wrap">
 <p>&copy; 2026 KOG Roofing. Serving the Dallas-Fort Worth Metroplex. Registered in Texas since 2011.</p>
 <div class="foot-links">
+<a href="hail-check.html">Hail check</a>
+<a href="free-inspection.html">Free inspection</a>
 <a href="roof-repair-or-replace.html">Repair or replace</a>
 <a href="flat-roof-guide.html">Flat roof options</a>
 <a href="storm-damage-guide.html">After a storm</a>
