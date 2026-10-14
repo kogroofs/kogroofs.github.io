@@ -199,6 +199,17 @@ tbody th{color:var(--navy);font-stretch:110%}
 .btn-navy:hover{border-color:var(--yellow)}
 .cta-box .actions{margin-top:18px}
 .article .guide-list{padding-left:0}
+.head-cta{display:flex;gap:8px;flex:none}
+.btn-text{color:var(--navy);border-color:var(--navy);background:var(--white)}
+.btn-text:hover{background:var(--navy);color:var(--white)}
+@media (max-width:380px){.logo{width:118px}.head-cta .btn{padding:.75em .95em}}
+.storm-banner{background:var(--navy-deep);color:var(--white);border-bottom:4px solid var(--yellow);padding:14px 0}
+.storm-banner .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px}
+.storm-banner p{margin:0;max-width:62ch;line-height:1.45;color:#DCE1EE}
+.storm-banner strong{display:block;color:var(--yellow);font-weight:900;font-stretch:118%;font-size:1.15rem;text-transform:uppercase;letter-spacing:.02em}
+.storm-banner b{color:var(--white)}
+.storm-banner :focus-visible{outline-color:var(--yellow)}
+.storm-banner .btn-yellow:hover{border-color:var(--white)}
 </style>
 </head>
 <body id="top">
@@ -214,13 +225,35 @@ tbody th{color:var(--navy);font-stretch:110%}
 <a href="index.html#services">Services</a>
 <a href="hail-check.html">Hail check</a>
 <a href="free-inspection.html">Free inspection</a>
+<a href="roof-prices.html">Prices</a>
 <a href="index.html#guides">Guides</a>
 <a href="index.html#about">About</a>
 <a href="index.html#contact">Contact</a>
 </nav>
-<a class="btn btn-yellow" href="tel:+18175502339">Call KOG</a>
+<div class="head-cta"><a class="btn btn-yellow" href="tel:+18175502339">Call</a><a class="btn btn-text" href="sms:+18175502339?&amp;body=Hi%20Bobby%2C%20I%20found%20KOG%20Roofing%20online.%20">Text</a></div>
 </div>
 </header>
+<div class="storm-banner" id="storm-banner" role="region" aria-label="Recent hail" hidden></div>
+<script>
+(function () {
+  var el = document.getElementById("storm-banner");
+  if (!el || !window.fetch) return;
+  fetch("hail-data/recent.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) {
+    if (!j || !j.storms || !j.storms.length) return;
+    var s = j.storms[0], p = s.date.split("-"), d = new Date(+p[0], +p[1] - 1, +p[2]);
+    var age = (Date.now() - d.getTime()) / 864e5;
+    if (age > 10 || age < -1 || !s.towns || !s.towns.length) return;
+    var t = s.towns.map(function (x) { return String(x).replace(/[<>&"]/g, ""); });
+    var list = t.length === 1 ? t[0] : t.slice(0, -1).join(", ") + (s.more ? ", " + t[t.length - 1] + " and " + s.more + " more towns" : (t.length > 2 ? "," : "") + " and " + t[t.length - 1]);
+    var day = d.toLocaleDateString("en-US", { weekday: "long", month: "short", day: "numeric" });
+    var here = /hail-check\.html$/.test(location.pathname);
+    el.innerHTML = '<div class="wrap"><p><strong>Hail alert</strong>Hail up to <b>' + (Math.round(s.max * 100) / 100) +
+      ' inches</b> was detected near ' + list + ' on ' + day + '. Hail damage often doesn\'t leak right away.</p>' +
+      '<a class="btn btn-yellow" href="' + (here ? "#hc-form" : "hail-check.html") + '">Check your address</a></div>';
+    el.hidden = false;
+  }).catch(function () {});
+})();
+</script>
 <main id="main">
 <div class="article-head">
 <div class="narrow">
@@ -290,6 +323,7 @@ tbody th{color:var(--navy);font-stretch:110%}
 <div class="actions">
 <a class="btn btn-yellow" href="free-inspection.html">Request a free inspection</a>
 <a class="btn btn-line" href="tel:+18175502339">Call (817) 550-2339</a>
+<a class="btn btn-line" href="sms:+18175502339?&amp;body=Hi%20Bobby%2C%20I%20found%20KOG%20Roofing%20online.%20">Text us</a>
 </div>
 </div>
 <div class="more">
@@ -308,7 +342,10 @@ tbody th{color:var(--navy);font-stretch:110%}
 <p>&copy; 2026 KOG Roofing. Serving the Dallas-Fort Worth Metroplex. Registered in Texas since 2011.</p>
 <div class="foot-links">
 <a href="hail-check.html">Hail check</a>
+<a href="roof-questions.html">Roof questions</a>
 <a href="free-inspection.html">Free inspection</a>
+<a href="roof-prices.html">Prices</a>
+<a href="roof-care-plan.html">Roof Care Plan</a>
 <a href="roof-repair-or-replace.html">Repair or replace</a>
 <a href="flat-roof-guide.html">Flat roof options</a>
 <a href="storm-damage-guide.html">After a storm</a>

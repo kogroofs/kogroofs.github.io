@@ -20,6 +20,7 @@ import io
 import json
 import math
 import os
+import re
 import sys
 import time
 import urllib.error
@@ -35,6 +36,7 @@ GROUND_DIR = os.path.join(DATA, "ground")
 TILE_DIR = os.path.join(DATA, "tiles")
 STATE_FILE = os.path.join(DATA, "reported.json")
 META_FILE = os.path.join(DATA, "meta.json")
+RECENT_FILE = os.path.join(DATA, "recent.json")
 ZIP_FILE = os.path.join(ROOT, "service-zips.json")
 
 # Service area box: west, south, east, north (covers all 14 counties + margin)
@@ -520,6 +522,20 @@ def github(method, path, body=None):
         return json.loads(r.read().decode("utf-8") or "{}")
 
 
+def write_recent(today, reports):
+    """Small file the site's storm banner reads: storms from the last ALERT_DAYS days."""
+    storms = []
+    for d, rep in sorted(reports.items(), reverse=True):
+        towns = [t["city"] for t in rep["towns"]]
+        if not towns:  # only ground reports: "2 W Granbury" -> "Granbury"
+            towns = [re.sub(r"^\d+(\.\d+)?\s+[NSEW]{1,3}\s+", "", g[4]) for g in rep["ground"]]
+        towns = list(dict.fromkeys(t for t in towns if t))
+        storms.append({"date": d.isoformat(), "max": rep["max"], "towns": towns[:4],
+                       "more": max(0, len(towns) - 4)})
+    with open(RECENT_FILE, "w", encoding="utf-8") as f:
+        json.dump({"v": 1, "made": today.isoformat(), "storms": storms}, f, indent=1)
+
+
 def post_reports(today, reports):
     state = {}
     if os.path.exists(STATE_FILE):
@@ -586,7 +602,9 @@ def main():
     with open(META_FILE, "w", encoding="utf-8") as f:
         json.dump(meta, f, indent=1)
 
-    post_reports(today, storm_reports(today, segs, ground))
+    reports = storm_reports(today, segs, ground)
+    write_recent(today, reports)
+    post_reports(today, reports)
 
     if first_run and fetched == 0:
         log("No radar data could be downloaded on the first run.")
