@@ -649,16 +649,19 @@ function kogForm(form, opts) {
     h += '<h2 class="headline" id="hc-headline">' + esc(headline) + "</h2>";
     if (sub) h += "<p>" + esc(sub) + "</p>";
 
-    var focus = near.length ? near : area;
+    var focus = nearBig.length ? nearBig : (near.length ? near : area);
     if (focus.length) {
-      var largest = focus.reduce(function (a, b) { return (near.length ? b.near > a.near : b.area > a.area) ? b : a; });
-      var big = near.length ? largest.near : largest.area;
-      var label = near.length ? "within 1 mile" : "within 3 miles";
+      var key = near.length ? "near" : "area";
+      var largest = focus.reduce(function (a, b) { return b[key] > a[key] ? b : a; });
+      var big = largest[key];
+      var label = nearBig.length ? "with hail 1 inch or larger within 1 mile" :
+        (near.length ? "with hail within 1 mile" : "with hail within 3 miles");
+      var where = near.length ? "within 1 mile" : "within 3 miles";
       h += '<ul class="tiles">' +
-        '<li><span class="num">' + focus.length + '</span><span class="lab">hail ' + (focus.length === 1 ? "day " : "days ") + label + "</span></li>" +
-        '<li><span class="num">' + inches(big) + '</span><span class="lab">largest ' + label + ", " + esc(sizeName(big)) + " size, on " + esc(dayText(largest.iso)) + "</span></li>" +
+        '<li><span class="num">' + focus.length + '</span><span class="lab">' + (focus.length === 1 ? "day " : "days ") + label + "</span></li>" +
+        '<li><span class="num">' + inches(big) + '</span><span class="lab">largest ' + where + ", " + esc(sizeName(big)) + " size, on " + esc(dayText(largest.iso)) + "</span></li>" +
         '<li><span class="num">' + esc(parseDay(focus[0].iso).toLocaleDateString("en-US", { month: "short", year: "numeric" })) +
-        '</span><span class="lab">most recent ' + label + ", " + esc(dayText(focus[0].iso)) + "</span></li></ul>";
+        '</span><span class="lab">most recent ' + (nearBig.length ? "1-inch-plus hail within 1 mile" : where) + ", " + esc(dayText(focus[0].iso)) + "</span></li></ul>";
       var recent = (near.length ? nearBig : area.filter(function (d) { return d.area >= 1; }))[0];
       if (recent && (Date.now() - parseDay(recent.iso).getTime()) < 365 * 864e5) {
         h += '<div class="callout"><p><strong>Hail damage often doesn\'t leak right away.</strong> Most insurance policies set a deadline for reporting damage, so check yours.</p></div>';
