@@ -1,0 +1,44 @@
+name: Hail data
+
+on:
+  schedule:
+    - cron: "17 12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pages: write
+
+concurrency:
+  group: hail-data
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Build hail data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 hail_builder.py
+
+      - name: Save hail data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add hail-data
+          git diff --cached --quiet && exit 0
+          git commit -m "Update hail data"
+          git pull --rebase
+          git push
+
+      - name: Refresh the website
+        continue-on-error: true
+        run: >
+          curl -fsS -X POST
+          -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}"
+          -H "Accept: application/vnd.github+json"
+          "https://api.github.com/repos/${{ github.repository }}/pages/builds"
