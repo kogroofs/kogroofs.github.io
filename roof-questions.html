@@ -250,10 +250,26 @@
   },
   {
    "@type": "Question",
-   "name": "Do you take Bitcoin?",
+   "name": "How can I pay?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Yes. We accept Bitcoin and other cryptocurrency."
+    "text": "Cash, check, credit or debit card, Zelle, Bitcoin, and other cryptocurrency. If you need another way to pay, ask. We'll work it out."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Who owns KOG Roofing?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "William \"Bobby\" Roach. He started KOG in 2010, and he still inspects the roofs and runs the jobs."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What are your hours?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Monday through Saturday, 7 AM to 7 PM. If water is coming in, call any time, day or night: (817) 550-2339."
    }
   }
  ]
@@ -421,6 +437,24 @@ tbody th{color:var(--navy);font-stretch:110%}
 .checks li::before{content:"";position:absolute;left:4px;top:15px;width:16px;height:9px;border-left:4px solid var(--navy);border-bottom:4px solid var(--navy);transform:rotate(-45deg)}
 .checks strong{color:var(--navy)}
 
+
+/* v12: footer business details and phone contact bar */
+.site-footer .wrap{align-items:flex-start;gap:22px 40px}
+.foot-biz{max-width:40ch}
+.foot-biz p{margin:0 0 .75em;max-width:none}
+.foot-biz p:last-child{margin-bottom:0}
+.foot-name{color:var(--white);font-weight:850;font-stretch:118%;font-size:1.15rem}
+.foot-links{max-width:560px;gap:6px 18px}
+.mbar{display:none}
+@media (max-width:759px){
+body{padding-bottom:calc(70px + env(safe-area-inset-bottom))}
+.mbar{display:grid;grid-template-columns:1.15fr .8fr 1.35fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--navy-deep);border-top:4px solid var(--yellow);padding:8px 10px calc(8px + env(safe-area-inset-bottom))}
+.mbar a{display:flex;align-items:center;justify-content:center;min-height:46px;padding:0 6px;border-radius:3px;font-weight:850;font-stretch:112%;font-size:1rem;line-height:1.1;text-align:center;text-decoration:none}
+.mbar-call{background:var(--yellow);color:var(--navy)}
+.mbar-text{border:2px solid var(--white);color:var(--white)}
+.mbar-insp{background:var(--white);color:var(--navy)}
+.mbar a:focus-visible{outline-color:var(--yellow)}
+}
 </style>
 </head>
 <body id="top">
@@ -438,7 +472,7 @@ tbody th{color:var(--navy);font-stretch:110%}
 <a href="free-inspection.html">Free inspection</a>
 <a href="roof-prices.html">Prices</a>
 <a href="index.html#guides">Guides</a>
-<a href="index.html#about">About</a>
+<a href="about.html">About</a>
 <a href="index.html#contact">Contact</a>
 </nav>
 <div class="head-cta"><a class="btn btn-yellow" href="tel:+18175502339">Call</a><a class="btn btn-text" href="sms:+18175502339?&amp;body=Hi%20Bobby%2C%20I%20found%20KOG%20Roofing%20online.%20">Text</a></div>
@@ -470,7 +504,7 @@ tbody th{color:var(--navy);font-stretch:110%}
 <div class="narrow">
 <p class="crumb"><a href="index.html#guides">Roof guides</a></p>
 <h1>Roof questions, answered straight</h1>
-<p class="updated">Hail, insurance, repairs, and costs in Dallas-Fort Worth. Updated October 2026.</p>
+<p class="updated">Hail, insurance, repairs, and costs in Dallas-Fort Worth. Updated October 19, 2026.</p>
 </div>
 </div>
 <article class="article">
@@ -547,8 +581,12 @@ tbody th{color:var(--navy);font-stretch:110%}
 <p>Yes. Text <a href="sms:+18175502339?&amp;body=Hi%20Bobby%2C%20I%20found%20KOG%20Roofing%20online.%20">(817) 550-2339</a>. Photos of the problem help us get you an answer faster.</p>
 <h3>Do you have a roof maintenance plan?</h3>
 <p>Yes. The <a href="roof-care-plan.html">KOG Roof Care Plan</a> is $199 a year for a yearly inspection with a written report, a roof check after any 1-inch hail near your home, priority emergency service, and 10% off repairs.</p>
-<h3>Do you take Bitcoin?</h3>
-<p>Yes. We accept Bitcoin and other cryptocurrency.</p>
+<h3>How can I pay?</h3>
+<p>Cash, check, credit or debit card, Zelle, Bitcoin, and other cryptocurrency. If you need another way to pay, ask. We'll work it out.</p>
+<h3>Who owns KOG Roofing?</h3>
+<p>William "Bobby" Roach. He started KOG in 2010, and he still inspects the roofs and runs the jobs. <a href="about.html">Read his story</a>.</p>
+<h3>What are your hours?</h3>
+<p>Monday through Saturday, 7 AM to 7 PM. If water is coming in, call any time, day or night: <a href="tel:+18175502339">(817) 550-2339</a>.</p>
 </div>
 <h2>Where these answers come from</h2>
 <ul class="note">
@@ -572,9 +610,21 @@ tbody th{color:var(--navy);font-stretch:110%}
 </main>
 <footer class="site-footer">
 <div class="wrap">
-<p>&copy; 2026 KOG Roofing. Serving the Dallas-Fort Worth Metroplex. Registered in Texas since 2011.</p>
+<div class="foot-biz">
+<p class="foot-name">KOG Roofing</p>
+<p>Owner: William "Bobby" Roach<br>
+<a href="tel:+18175502339">(817) 550-2339</a> &middot; <a href="mailto:bobby@kogroofs.com">bobby@kogroofs.com</a><br>
+Mon&ndash;Sat 7 AM&ndash;7 PM. Emergency calls 24/7.<br>
+Based in Granbury, serving the Dallas-Fort Worth Metroplex.<br>
+We take cash, check, card, Zelle, and crypto.</p>
+<p>Find KOG on <a href="https://www.facebook.com/kogroofing" rel="me">Facebook</a>, <a href="https://nextdoor.com/page/kog-roofing-granbury-tx-fnl9q6" rel="me">Nextdoor</a>, and the <a href="https://www.bbb.org/us/tx/granbury/profile/roofing-equipment/kog-roofing-0825-235975787">BBB</a>.</p>
+<p>&copy; 2026 KOG Roofing. Registered in Texas since 2011.</p>
+</div>
 <div class="foot-links">
+<a href="about.html">About</a>
 <a href="hail-check.html">Hail check</a>
+<a href="hail-report.html">DFW hail report</a>
+<a href="storm-ready.html">KOG Storm Ready</a>
 <a href="roof-questions.html">Roof questions</a>
 <a href="free-inspection.html">Free inspection</a>
 <a href="roof-prices.html">Prices</a>
@@ -591,5 +641,10 @@ tbody th{color:var(--navy);font-stretch:110%}
 </div>
 </div>
 </footer>
+<nav class="mbar" aria-label="Quick contact">
+<a class="mbar-call" href="tel:+18175502339">Call 24/7</a>
+<a class="mbar-text" href="sms:+18175502339?&amp;body=Hi%20Bobby%2C%20I%20found%20KOG%20Roofing%20online.%20">Text</a>
+<a class="mbar-insp" href="free-inspection.html">Free inspection</a>
+</nav>
 </body>
 </html>

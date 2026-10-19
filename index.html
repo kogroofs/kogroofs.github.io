@@ -15,11 +15,22 @@
 {
  "@context": "https://schema.org",
  "@type": "RoofingContractor",
+ "@id": "https://kogroofs.com/#business",
  "name": "KOG Roofing",
  "url": "https://kogroofs.com/",
+ "logo": "https://kogroofs.com/logo.png",
+ "image": "https://kogroofs.com/logo.png",
  "telephone": "+1-817-550-2339",
- "email": "kogroofs@gmail.com",
+ "email": "bobby@kogroofs.com",
  "foundingDate": "2010",
+ "founder": {
+  "@type": "Person",
+  "@id": "https://kogroofs.com/about.html#bobby",
+  "name": "William Roach",
+  "alternateName": "Bobby Roach",
+  "jobTitle": "Owner",
+  "url": "https://kogroofs.com/about.html"
+ },
  "description": "Commercial and residential roof repair and replacement across the Dallas-Fort Worth Metroplex: TPO, EPDM, torch-down, metal, and shingle roofs.",
  "address": {
   "@type": "PostalAddress",
@@ -102,9 +113,11 @@
   }
  ],
  "sameAs": [
-  "https://www.facebook.com/kogroofing"
+  "https://www.facebook.com/kogroofing",
+  "https://nextdoor.com/page/kog-roofing-granbury-tx-fnl9q6",
+  "https://www.bbb.org/us/tx/granbury/profile/roofing-equipment/kog-roofing-0825-235975787"
  ],
- "paymentAccepted": "Cryptocurrency, Bitcoin",
+ "paymentAccepted": "Cash, Check, Credit Card, Debit Card, Zelle, Bitcoin, Cryptocurrency",
  "knowsAbout": [
   "Roof repair",
   "Roof replacement",
@@ -132,7 +145,24 @@
   "@type": "ViewAction",
   "name": "Check an address for hail",
   "target": "https://kogroofs.com/hail-check.html"
- }
+ },
+ "openingHoursSpecification": [
+  {
+   "@type": "OpeningHoursSpecification",
+   "dayOfWeek": [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+   ],
+   "opens": "07:00",
+   "closes": "19:00"
+  }
+ ],
+ "currenciesAccepted": "USD",
+ "priceRange": "$$"
 }
 </script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%231F2A5C'/%3E%3Cpath d='M8 34 32 12 56 34M15 30v22h34V30' fill='none' stroke='%23F2DE3A' stroke-width='6'/%3E%3C/svg%3E">
@@ -289,6 +319,24 @@ tbody th{color:var(--navy);font-stretch:110%}
 .storm-banner b{color:var(--white)}
 .storm-banner :focus-visible{outline-color:var(--yellow)}
 .storm-banner .btn-yellow:hover{border-color:var(--white)}
+
+/* v12: footer business details and phone contact bar */
+.site-footer .wrap{align-items:flex-start;gap:22px 40px}
+.foot-biz{max-width:40ch}
+.foot-biz p{margin:0 0 .75em;max-width:none}
+.foot-biz p:last-child{margin-bottom:0}
+.foot-name{color:var(--white);font-weight:850;font-stretch:118%;font-size:1.15rem}
+.foot-links{max-width:560px;gap:6px 18px}
+.mbar{display:none}
+@media (max-width:759px){
+body{padding-bottom:calc(70px + env(safe-area-inset-bottom))}
+.mbar{display:grid;grid-template-columns:1.15fr .8fr 1.35fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--navy-deep);border-top:4px solid var(--yellow);padding:8px 10px calc(8px + env(safe-area-inset-bottom))}
+.mbar a{display:flex;align-items:center;justify-content:center;min-height:46px;padding:0 6px;border-radius:3px;font-weight:850;font-stretch:112%;font-size:1rem;line-height:1.1;text-align:center;text-decoration:none}
+.mbar-call{background:var(--yellow);color:var(--navy)}
+.mbar-text{border:2px solid var(--white);color:var(--white)}
+.mbar-insp{background:var(--white);color:var(--navy)}
+.mbar a:focus-visible{outline-color:var(--yellow)}
+}
 </style>
 </head>
 <body id="top">
@@ -306,7 +354,7 @@ tbody th{color:var(--navy);font-stretch:110%}
 <a href="free-inspection.html">Free inspection</a>
 <a href="roof-prices.html">Prices</a>
 <a href="#guides">Guides</a>
-<a href="#about">About</a>
+<a href="about.html">About</a>
 <a href="#contact">Contact</a>
 </nav>
 <div class="head-cta"><a class="btn btn-yellow" href="tel:+18175502339">Call</a><a class="btn btn-text" href="sms:+18175502339?&amp;body=Hi%20Bobby%2C%20I%20found%20KOG%20Roofing%20online.%20">Text</a></div>
@@ -413,7 +461,7 @@ tbody th{color:var(--navy);font-stretch:110%}
 <li><strong>Safety first on commercial and industrial sites</strong><span>Bobby also spent years in the oilfield as a designated safety leader, running job safety analyses, safety meetings, inspections, and incident investigations. Plants and industrial sites get a roofer who already works that way.</span></li>
 <li><strong><a href="roof-prices.html">Prices in the open</a></strong><span>Most roofers won't post prices. We do, and our <a href="roof-cost-calculator.html">roof cost calculator</a> gives you a ballpark for your home in about a minute.</span></li>
 <li><strong><a href="roof-claim-calculator.html">Your real number before you sign</a></strong><span>Texas deductibles are a percentage of your home's value now, and older roofs get paid less. Our claim calculator shows your share of a hail claim, and at the inspection we'll go through it with your numbers.</span></li>
-<li><strong>Pay with Bitcoin</strong><span>We accept Bitcoin and other cryptocurrency.</span></li>
+<li><strong>Pay with Bitcoin, or any way you like</strong><span>We accept Bitcoin and other cryptocurrency, plus cash, check, card, and Zelle.</span></li>
 </ul>
 <div class="actions"><a class="btn btn-navy" href="free-inspection.html">Request a free inspection</a></div>
 </div>
@@ -439,6 +487,8 @@ tbody th{color:var(--navy);font-stretch:110%}
 <p class="lead">Straight answers to the questions building owners and homeowners ask most.</p>
 <ul class="guide-list">
 <li><a href="roof-questions.html">Roof questions, answered straight</a><p>Hail, insurance, deductibles, repairs, and replacements: short answers to what Dallas-Fort Worth homeowners ask most.</p></li>
+<li><a href="storm-ready.html">KOG Storm Ready: get your roof on record before hail season</a><p>A free winter roof check with dated photos kept on file, hail alerts for your address, and a free re-check after a big storm.</p></li>
+<li><a href="hail-report.html">DFW hail report: where hail hit, month by month</a><p>Every day NOAA radar caught hail 1 inch or larger in the towns we serve, updated every morning.</p></li>
 <li><a href="roof-cost-calculator.html">Roof cost calculator</a><p>A ballpark for a new shingle or metal roof on your home, from our posted prices.</p></li>
 <li><a href="roof-claim-calculator.html">What will my roof claim cost me?</a><p>Texas deductibles are a percentage of your home's value now, and older roofs get paid less. See your share of a hail claim before you sign anything.</p></li>
 <li><a href="attic-ventilation.html">Why Texas roofs die early: attic ventilation</a><p>How soffit intake and ridge exhaust keep an attic from cooking the shingles, and the mistakes we find most.</p></li>
@@ -455,6 +505,7 @@ tbody th{color:var(--navy);font-stretch:110%}
 <h2 id="about-title">About KOG Roofing</h2>
 <p>Bobby Roach started KOG Roofing in 2010 with a stack of work orders and business cards, and sold his first roof at sundown on his first day. Since then he has sold and run hundreds of jobs, from shingle re-roofs to TPO, EPDM, torch-down, and metal.</p>
 <p>He runs each job himself: the inspection, the estimate, the material order, and the crew schedule. His favorite part of the work hasn't changed. It's telling an owner the truth about their roof, finishing the job right, and driving home knowing they're happy.</p>
+<p><a href="about.html">Read Bobby's story</a></p>
 </div>
 </section>
 
@@ -491,16 +542,29 @@ tbody th{color:var(--navy);font-stretch:110%}
 <a class="phone-big" href="tel:+18175502339">(817) 550-2339</a>
 <div class="actions" style="margin:6px 0 18px"><a class="btn btn-yellow" href="free-inspection.html">Request a free inspection online</a><a class="btn btn-line" href="sms:+18175502339?&amp;body=Hi%20Bobby%2C%20I%20found%20KOG%20Roofing%20online.%20">Text us</a></div>
 <p><strong>Booking online?</strong> Mention code <strong style="color:var(--yellow)">KOG100</strong> for $100 off any job of $500 or more that you pay for yourself. <a href="roof-prices.html#coupon" style="color:var(--white)">Details</a>.</p>
-<p class="email">Email: <a href="mailto:kogroofs@gmail.com">kogroofs@gmail.com</a></p>
+<p class="email">Email: <a href="mailto:bobby@kogroofs.com">bobby@kogroofs.com</a></p>
+<p><strong>Hours:</strong> Monday through Saturday, 7 AM to 7 PM. Emergency calls 24/7.<br><strong>Payment:</strong> cash, check, card, Zelle, Bitcoin, and other crypto.</p>
 </div>
 </section>
 
 </main>
 <footer class="site-footer">
 <div class="wrap">
-<p>&copy; 2026 KOG Roofing. Serving the Dallas-Fort Worth Metroplex. Registered in Texas since 2011.</p>
+<div class="foot-biz">
+<p class="foot-name">KOG Roofing</p>
+<p>Owner: William "Bobby" Roach<br>
+<a href="tel:+18175502339">(817) 550-2339</a> &middot; <a href="mailto:bobby@kogroofs.com">bobby@kogroofs.com</a><br>
+Mon&ndash;Sat 7 AM&ndash;7 PM. Emergency calls 24/7.<br>
+Based in Granbury, serving the Dallas-Fort Worth Metroplex.<br>
+We take cash, check, card, Zelle, and crypto.</p>
+<p>Find KOG on <a href="https://www.facebook.com/kogroofing" rel="me">Facebook</a>, <a href="https://nextdoor.com/page/kog-roofing-granbury-tx-fnl9q6" rel="me">Nextdoor</a>, and the <a href="https://www.bbb.org/us/tx/granbury/profile/roofing-equipment/kog-roofing-0825-235975787">BBB</a>.</p>
+<p>&copy; 2026 KOG Roofing. Registered in Texas since 2011.</p>
+</div>
 <div class="foot-links">
+<a href="about.html">About</a>
 <a href="hail-check.html">Hail check</a>
+<a href="hail-report.html">DFW hail report</a>
+<a href="storm-ready.html">KOG Storm Ready</a>
 <a href="roof-questions.html">Roof questions</a>
 <a href="free-inspection.html">Free inspection</a>
 <a href="roof-prices.html">Prices</a>
@@ -517,5 +581,10 @@ tbody th{color:var(--navy);font-stretch:110%}
 </div>
 </div>
 </footer>
+<nav class="mbar" aria-label="Quick contact">
+<a class="mbar-call" href="tel:+18175502339">Call 24/7</a>
+<a class="mbar-text" href="sms:+18175502339?&amp;body=Hi%20Bobby%2C%20I%20found%20KOG%20Roofing%20online.%20">Text</a>
+<a class="mbar-insp" href="free-inspection.html">Free inspection</a>
+</nav>
 </body>
 </html>

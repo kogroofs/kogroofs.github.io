@@ -20,7 +20,8 @@
   "@type": "RoofingContractor",
   "name": "KOG Roofing",
   "url": "https://kogroofs.com/",
-  "telephone": "+1-817-550-2339"
+  "telephone": "+1-817-550-2339",
+  "@id": "https://kogroofs.com/#business"
  },
  "areaServed": {
   "@type": "City",
@@ -186,6 +187,24 @@ tbody th{color:var(--navy);font-stretch:110%}
 .stat{font-size:1.15rem}
 .stat b{color:var(--navy);font-stretch:110%}
 
+
+/* v12: footer business details and phone contact bar */
+.site-footer .wrap{align-items:flex-start;gap:22px 40px}
+.foot-biz{max-width:40ch}
+.foot-biz p{margin:0 0 .75em;max-width:none}
+.foot-biz p:last-child{margin-bottom:0}
+.foot-name{color:var(--white);font-weight:850;font-stretch:118%;font-size:1.15rem}
+.foot-links{max-width:560px;gap:6px 18px}
+.mbar{display:none}
+@media (max-width:759px){
+body{padding-bottom:calc(70px + env(safe-area-inset-bottom))}
+.mbar{display:grid;grid-template-columns:1.15fr .8fr 1.35fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--navy-deep);border-top:4px solid var(--yellow);padding:8px 10px calc(8px + env(safe-area-inset-bottom))}
+.mbar a{display:flex;align-items:center;justify-content:center;min-height:46px;padding:0 6px;border-radius:3px;font-weight:850;font-stretch:112%;font-size:1rem;line-height:1.1;text-align:center;text-decoration:none}
+.mbar-call{background:var(--yellow);color:var(--navy)}
+.mbar-text{border:2px solid var(--white);color:var(--white)}
+.mbar-insp{background:var(--white);color:var(--navy)}
+.mbar a:focus-visible{outline-color:var(--yellow)}
+}
 </style>
 </head>
 <body id="top">
@@ -203,7 +222,7 @@ tbody th{color:var(--navy);font-stretch:110%}
 <a href="free-inspection.html">Free inspection</a>
 <a href="roof-prices.html">Prices</a>
 <a href="index.html#guides">Guides</a>
-<a href="index.html#about">About</a>
+<a href="about.html">About</a>
 <a href="index.html#contact">Contact</a>
 </nav>
 <div class="head-cta"><a class="btn btn-yellow" href="tel:+18175502339">Call</a><a class="btn btn-text" href="sms:+18175502339?&amp;body=Hi%20Bobby%2C%20I%20found%20KOG%20Roofing%20online.%20">Text</a></div>
@@ -255,8 +274,17 @@ tbody th{color:var(--navy);font-stretch:110%}
 <p class="note">"Near Burleson" means within 3 miles of the center of its ZIP code. These are radar estimates of hail size from NOAA's NEXRAD weather radars, not measurements on the ground. Radar can miss small or short bursts, and stone sizes vary block to block.</p>
 <p>Want the record for your own street? <a href="hail-check.html">Check your address</a> against the same radar data. Hail damage often doesn't leak right away, so read <a href="storm-damage-guide.html">what to check after a storm</a>.</p>
 
+<h2>When hail hits Burleson</h2>
+<p>Spring is hail season around Burleson. Since 2023, most of the days with 1-inch hail came from March through June. June has been the worst single month. Big hail has also come in July, September, October, and November.</p>
+<p>The most common time has been in the afternoon, between noon and 6 PM, followed by the evening. A few storms hit overnight, while most people were asleep. A few storms hit in the morning. If a storm woke you up, or you found hail in the yard the next morning, <a href="hail-check.html">check your address</a> against the radar.</p>
+<p class="note">Times are when radar first picked up hail 1 inch or larger near Burleson, using the same NOAA records and the same 3-mile rule as above.</p>
+
 <h2>Permits in Burleson</h2>
 <p>Burleson's Building Permits and Inspections office, at 817-426-9632, handles permits and inspections inside the city. We confirm what your re-roof needs with that office and pull any permit before work starts. Inspection requests in Burleson are due by 8 p.m. the day before.</p>
+
+<h2>Roofs in Burleson</h2>
+<p>Burleson more than doubled between the 2000 and 2020 censuses, from about 21,000 people to about 47,600. Most of the city is in northern Johnson County, with a small piece in Tarrant County, so which side of the line your house sits on can change whose rules apply. We sort that out before work starts.</p>
+<p>Burleson's hail tends to run big. On 6 of the 15 days with 1-inch hail since 2023, the stones reached 2 inches or more. Hail that size cracks shingles and dents metal, so after a big one, it's worth a look even if nothing is leaking.</p>
 
 <h2>What we do in Burleson</h2>
 <p><a href="roof-repair.html">Roof repairs</a>, <a href="roof-replacement.html">shingle roof replacements</a>, <a href="metal-roofing.html">metal roofs</a>, <a href="commercial-roofing.html">commercial flat roofs</a>, <a href="gutters.html">seamless gutters</a>, and <a href="storm-damage.html">storm damage inspections</a> with a written report and photos. See <a href="roof-prices.html">our prices</a>, or get a ballpark for your home with the <a href="roof-cost-calculator.html">roof cost calculator</a>.</p>
@@ -293,13 +321,26 @@ tbody th{color:var(--navy);font-stretch:110%}
 </main>
 <footer class="site-footer">
 <div class="wrap">
-<p>&copy; 2026 KOG Roofing. Serving the Dallas-Fort Worth Metroplex. Registered in Texas since 2011.</p>
+<div class="foot-biz">
+<p class="foot-name">KOG Roofing</p>
+<p>Owner: William "Bobby" Roach<br>
+<a href="tel:+18175502339">(817) 550-2339</a> &middot; <a href="mailto:bobby@kogroofs.com">bobby@kogroofs.com</a><br>
+Mon&ndash;Sat 7 AM&ndash;7 PM. Emergency calls 24/7.<br>
+Based in Granbury, serving the Dallas-Fort Worth Metroplex.<br>
+We take cash, check, card, Zelle, and crypto.</p>
+<p>Find KOG on <a href="https://www.facebook.com/kogroofing" rel="me">Facebook</a>, <a href="https://nextdoor.com/page/kog-roofing-granbury-tx-fnl9q6" rel="me">Nextdoor</a>, and the <a href="https://www.bbb.org/us/tx/granbury/profile/roofing-equipment/kog-roofing-0825-235975787">BBB</a>.</p>
+<p>&copy; 2026 KOG Roofing. Registered in Texas since 2011.</p>
+</div>
 <div class="foot-links">
+<a href="about.html">About</a>
 <a href="hail-check.html">Hail check</a>
+<a href="hail-report.html">DFW hail report</a>
+<a href="storm-ready.html">KOG Storm Ready</a>
 <a href="roof-questions.html">Roof questions</a>
 <a href="free-inspection.html">Free inspection</a>
 <a href="roof-prices.html">Prices</a>
 <a href="roof-cost-calculator.html">Roof cost calculator</a>
+<a href="roof-claim-calculator.html">Claim calculator</a>
 <a href="roof-care-plan.html">Roof Care Plan</a>
 <a href="roof-repair-or-replace.html">Repair or replace</a>
 <a href="flat-roof-guide.html">Flat roof options</a>
@@ -311,5 +352,10 @@ tbody th{color:var(--navy);font-stretch:110%}
 </div>
 </div>
 </footer>
+<nav class="mbar" aria-label="Quick contact">
+<a class="mbar-call" href="tel:+18175502339">Call 24/7</a>
+<a class="mbar-text" href="sms:+18175502339?&amp;body=Hi%20Bobby%2C%20I%20found%20KOG%20Roofing%20online.%20">Text</a>
+<a class="mbar-insp" href="free-inspection.html">Free inspection</a>
+</nav>
 </body>
 </html>
