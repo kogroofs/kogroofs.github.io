@@ -328,6 +328,23 @@ tbody th{color:var(--navy);font-stretch:110%}
 .foot-name{color:var(--white);font-weight:850;font-stretch:118%;font-size:1.15rem}
 .foot-links{max-width:560px;gap:6px 18px}
 .mbar{display:none}
+.reviews{background:var(--navy);color:var(--white);border-top:4px solid var(--yellow);border-bottom:4px solid var(--yellow)}
+.reviews h2{color:var(--white);margin:0}
+.reviews :focus-visible{outline-color:var(--yellow)}
+.reviews .btn-yellow:hover{border-color:var(--white)}
+.rv-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px}
+.rv-score{display:flex;align-items:center;gap:16px}
+.rv-score svg{width:68px;height:68px;flex:none}
+.rv-score p{margin:0}
+.rv-score b{display:block;font-size:clamp(3rem,9vw,4.4rem);font-weight:900;font-stretch:118%;line-height:.95;color:var(--yellow)}
+.rv-score span{display:block;color:#DCE1EE;font-size:1rem;max-width:24ch}
+.rv-grid{list-style:none;margin:32px 0 0;padding:0;display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr))}
+.rv-grid li{display:flex}
+.rv-card{margin:0;flex:1;background:var(--white);color:var(--ink);border-radius:6px;border-top:8px solid var(--yellow);padding:16px 22px 22px;display:flex;flex-direction:column;gap:14px}
+.rv-card blockquote{margin:0;font-size:1.08rem;line-height:1.55}
+.rv-card blockquote::before{content:"\201C";display:block;height:.55em;margin-bottom:6px;font-size:4.4rem;line-height:1;font-weight:900;color:var(--navy)}
+.rv-who{margin-top:auto;font-weight:800;font-stretch:110%;color:var(--navy);font-size:1.05rem}
+.rv-src{display:block;font-weight:500;font-stretch:100%;color:var(--steel);font-size:.92rem}
 @media (max-width:759px){
 body{padding-bottom:calc(70px + env(safe-area-inset-bottom))}
 .mbar{display:grid;grid-template-columns:1.15fr .8fr 1.35fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--navy-deep);border-top:4px solid var(--yellow);padding:8px 10px calc(8px + env(safe-area-inset-bottom))}
@@ -450,6 +467,33 @@ body{padding-bottom:calc(70px + env(safe-area-inset-bottom))}
 </div>
 </section>
 
+<section class="section reviews" id="reviews" aria-labelledby="reviews-title">
+<div class="wrap">
+<div class="rv-head">
+<h2 id="reviews-title">What customers say</h2>
+<div class="rv-score">
+<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 4h32a4 4 0 0 1 4 4v24a4 4 0 0 1-4 4H20l-10 8v-8H8a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z" fill="#F2DE3A"/><polygon points="24,10 26.47,16.6 33.51,16.91 27.99,21.3 29.88,28.09 24,24.2 18.12,28.09 20.01,21.3 14.49,16.91 21.53,16.6" fill="#1F2A5C"/></svg>
+<p><b>90%</b><span>recommend KOG Roofing on Facebook (10 reviews)</span></p>
+</div>
+</div>
+<ul class="rv-grid">
+<li><figure class="rv-card">
+<blockquote>Bobby and KOG delivered an excellent roof! Everything was done on time, and went smoothly. The material delivered was the wrong color, so Bobby hopped in his truck and went and got the right one without delaying one bit.</blockquote>
+<figcaption class="rv-who">Christy P.<span class="rv-src">Recommends KOG Roofing on Facebook</span></figcaption>
+</figure></li>
+<li><figure class="rv-card">
+<blockquote>K O G Roofing put a new roof on my house and not only did I get a great roof the owner of KOG worked with us and the insurance company. He explained the process and everything went just as he said. I couldn't be more happy.</blockquote>
+<figcaption class="rv-who">Steven R.<span class="rv-src">Recommends KOG Roofing on Facebook</span></figcaption>
+</figure></li>
+<li><figure class="rv-card">
+<blockquote>Their service was timely as promised. Very friendly service and did a great job of cleanup. Price was fair and worked with insurance.</blockquote>
+<figcaption class="rv-who">Danny J.<span class="rv-src">Recommends KOG Roofing on Facebook</span></figcaption>
+</figure></li>
+</ul>
+<div class="actions"><a class="btn btn-yellow" href="https://www.facebook.com/kogroofing">Read all our reviews on Facebook</a></div>
+</div>
+</section>
+
 <section class="section" id="why" aria-labelledby="why-title">
 <div class="wrap">
 <h2 id="why-title">What you get with KOG</h2>
@@ -512,9 +556,6 @@ body{padding-bottom:calc(70px + env(safe-area-inset-bottom))}
 <p>Bobby Roach started KOG Roofing in 2010 with a stack of work orders and business cards, and sold his first roof at sundown on his first day. Since then he has sold and run hundreds of jobs, from shingle re-roofs to TPO, EPDM, torch-down, and metal.</p>
 <p>He runs each job himself: the inspection, the estimate, the material order, and the crew schedule. His favorite part of the work hasn't changed. It's telling an owner the truth about their roof, finishing the job right, and driving home knowing they're happy.</p>
 <p><a href="about.html">Read Bobby's story</a></p>
-<h3>Don't take our word for it</h3>
-<p>Read what KOG customers wrote about us on our Facebook page.</p>
-<div class="actions"><a class="btn btn-navy" href="https://www.facebook.com/kogroofing">Read our reviews on Facebook</a></div>
 </div>
 </section>
 
