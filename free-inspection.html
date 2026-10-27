@@ -358,6 +358,7 @@ body{padding-bottom:calc(70px + env(safe-area-inset-bottom))}
 <option>Roof replacement</option>
 <option>Inspection and written report</option>
 <option>Roof condition report for insurance or a home sale</option>
+<option>Roof certification letter ($175)</option>
 <option>Commercial roof maintenance or survey</option>
 <option>Gutters</option>
 <option>Siding</option>
@@ -457,6 +458,7 @@ We take cash, check, card, Zelle, and crypto.</p>
 <a href="straight-deal.html">Straight Deal on a new roof</a>
 <a href="deductible-payment-plan.html">Deductible payment plan</a>
 <a href="roof-care-plan.html">Roof Care Plan</a>
+<a href="roof-letter.html">Roof letter</a>
 <a href="roof-repair-or-replace.html">Repair or replace</a>
 <a href="flat-roof-guide.html">Flat roof options</a>
 <a href="storm-damage-guide.html">After a storm</a>
@@ -565,6 +567,7 @@ function kogForm(form, opts) {
   if (q.get("address")) form.address.value = q.get("address").slice(0, 200);
   if (q.get("need") === "hail") form.need.value = "Hail or storm damage inspection";
   if (q.get("need") === "replace") form.need.value = "Roof replacement";
+  if (q.get("need") === "letter") form.need.value = "Roof certification letter ($175)";
   if (q.get("note") && !form.message.value) form.message.value = q.get("note").slice(0, 400);
 
   kogForm(form, {
