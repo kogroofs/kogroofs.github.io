@@ -449,6 +449,7 @@ def storm_reports(today, segs, ground):
                 key = (city, county)
                 town = towns.setdefault(key, {"city": city, "county": county, "zips": [], "size": 0})
                 town["zips"].append(z)
+                town.setdefault("zip_sizes", {})[z] = best
                 town["size"] = max(town["size"], best)
         if not towns and not day_ground:
             continue
@@ -474,6 +475,9 @@ def report_text(d, rep):
             zlist = ", ".join(z[:6]) + (f" and {len(z) - 6} more" if len(z) > 6 else "")
             lines.append(f"| {t['city']} | {t['county']} | {zlist} | {fmt_size(t['size'])} |")
         lines.append("")
+        all_zips = sorted({z for t in rep["towns"] for z in t["zips"]})
+        lines += ["**Every ZIP code hit** (copy this line into the KOG CRM: Send, then Hail hit):", "",
+                  "```", ", ".join(all_zips), "```", ""]
     if rep["ground"]:
         lines += ["**Hail reported on the ground** (National Weather Service storm reports):", ""]
         for g in rep["ground"][:40]:
@@ -530,8 +534,12 @@ def write_recent(today, reports):
         if not towns:  # only ground reports: "2 W Granbury" -> "Granbury"
             towns = [re.sub(r"^\d+(\.\d+)?\s+[NSEW]{1,3}\s+", "", g[4]) for g in rep["ground"]]
         towns = list(dict.fromkeys(t for t in towns if t))
+        # every ZIP code with hail 1 inch or larger, for the KOG CRM's "Hail hit" screen
+        zips = {}
+        for t in rep["towns"]:
+            zips.update(t.get("zip_sizes", {}))
         storms.append({"date": d.isoformat(), "max": rep["max"], "towns": towns[:4],
-                       "more": max(0, len(towns) - 4)})
+                       "more": max(0, len(towns) - 4), "zips": dict(sorted(zips.items()))})
     with open(RECENT_FILE, "w", encoding="utf-8") as f:
         json.dump({"v": 1, "made": today.isoformat(), "storms": storms}, f, indent=1)
 
