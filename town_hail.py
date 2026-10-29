@@ -42,6 +42,7 @@ BIGGEST_SHOWN = 4
 CENTERS = {
     "Pecan Plantation": ([(32.3637, -97.6625)], "the center of Pecan Plantation"),
     "Willow Park": ([(32.758, -97.653)], "the center of town"),
+    "Benbrook": ([(32.6733, -97.4606)], "the center of town"),
 }
 
 START_MARK = "<!-- KOG:TOWNHAIL:START -->"

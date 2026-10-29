@@ -10,9 +10,10 @@
   var PHONE = "+18175502339";
   var PHONE_SHOWN = "(817) 550-2339";
   var SMS = "sms:" + PHONE + "?&body=" + encodeURIComponent("Hi KOG Roofing, I found you online. ");
-  var TOWN_PAGES = ["Aledo", "Arlington", "Azle", "Burleson", "Cleburne", "Colleyville", "Dallas", "Fort Worth",
-    "Glen Rose", "Granbury", "Grand Prairie", "Grapevine", "Joshua", "Keller", "Mansfield", "Midlothian",
-    "North Richland Hills", "Pecan Plantation", "Southlake", "Stephenville", "Waxahachie", "Weatherford", "Willow Park"];
+  var TOWN_PAGES = ["Aledo", "Arlington", "Azle", "Bedford", "Benbrook", "Burleson", "Cleburne",
+    "Colleyville", "Dallas", "Euless", "Fort Worth", "Glen Rose", "Granbury", "Grand Prairie", "Grapevine",
+    "Haltom City", "Joshua", "Keller", "Mansfield", "Midlothian", "North Richland Hills", "Pecan Plantation",
+    "Southlake", "Stephenville", "Waxahachie", "Weatherford", "Willow Park"];
 
   function townPage(town) {
     for (var i = 0; i < TOWN_PAGES.length; i++) {
