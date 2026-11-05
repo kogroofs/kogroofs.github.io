@@ -1,8 +1,8 @@
 {
  "v": 1,
- "checked": "2026-11-04T13:27Z",
+ "checked": "2026-11-05T13:31Z",
  "start": "2023-01-01",
- "latest_hail": "2026-09-27",
+ "latest_hail": "2026-11-02",
  "bbox": [
   -98.8,
   31.8,
@@ -13,7 +13,7 @@
  "rows": 4,
  "cols": 7,
  "min_size": 0.75,
- "track_pieces": 46004,
+ "track_pieces": 46076,
  "ground_reports": 0,
  "warnings": []
 }
