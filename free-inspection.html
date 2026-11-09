@@ -187,7 +187,7 @@ tbody th{color:var(--navy);font-stretch:110%}
 .field>label,.field legend{display:block;font-weight:750;color:var(--navy);font-stretch:108%;margin:0 0 6px;padding:0}
 .opt{font-weight:400;color:var(--steel);font-stretch:100%}
 .hint{display:block;color:var(--steel);font-size:.95rem;margin:-2px 0 8px}
-.form-card input[type=text],.form-card input[type=tel],.form-card input[type=email],.form-card select,.form-card textarea{display:block;width:100%;font:inherit;font-size:1.0625rem;line-height:1.35;color:var(--ink);background:var(--white);border:2px solid #7A8297;border-radius:3px;padding:.7em .8em;min-height:50px}
+.form-card input[type=text],.form-card input[type=tel],.form-card input[type=email],.form-card input[type=date],.form-card select,.form-card textarea{display:block;width:100%;font:inherit;font-size:1.0625rem;line-height:1.35;color:var(--ink);background:var(--white);border:2px solid #7A8297;border-radius:3px;padding:.7em .8em;min-height:50px}
 .form-card select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%231F2A5C' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:14px;padding-right:40px}
 .form-card textarea{min-height:120px;resize:vertical}
 .form-card input:focus,.form-card select:focus,.form-card textarea:focus{outline:3px solid var(--navy);outline-offset:1px;border-color:var(--navy)}
@@ -307,7 +307,15 @@ body{padding-bottom:calc(70px + env(safe-area-inset-bottom))}
 </div>
 
 <div class="promise">
+<p><strong>One roofer, not five.</strong> Lead sites often pass your request to several roofers at once. Your request goes to KOG only. We never sell or share it.</p>
+</div>
+
+<div class="promise">
 <p><strong>If you don't need a roof, we'll tell you, and show you why.</strong> Every inspection comes with a written report: photos, what we found, and what it needs. The report is yours to keep either way.</p>
+</div>
+
+<div class="promise">
+<p><strong>Not sure what you're looking at? Text a photo.</strong> Send a photo of the roof or the ceiling stain to <a href="sms:+18175502339?&amp;body=Hi%20KOG%20Roofing%2C%20here%27s%20a%20photo%20of%20my%20roof.%20My%20town%20is%3A%20">(817) 550-2339</a>. A KOG roofer texts back what it likely is and the price range, within an hour, 7 AM to 7 PM, Monday through Saturday. The free inspection confirms it.</p>
 </div>
 
 <p class="fine"><strong>Coupon:</strong> mention code <strong>KOG100</strong> when you sign for $100 off any job of $500 or more that you pay for yourself. <a href="roof-prices.html#coupon">Details</a>.</p>
@@ -384,6 +392,21 @@ body{padding-bottom:calc(70px + env(safe-area-inset-bottom))}
 </fieldset>
 
 <div class="field">
+<label for="f-day">Day that works for the inspection <span class="opt">(optional)</span></label>
+<span class="hint" id="f-day-hint">Monday through Saturday. We'll confirm the time when we reach you.</span>
+<input type="date" id="f-day" name="inspection_day" aria-describedby="f-day-hint">
+</div>
+
+<fieldset class="field">
+<legend>Morning or afternoon? <span class="opt">(optional)</span></legend>
+<div class="choices">
+<label><input type="radio" name="inspection_window" value="Morning"><span>Morning</span></label>
+<label><input type="radio" name="inspection_window" value="Afternoon"><span>Afternoon</span></label>
+<label><input type="radio" name="inspection_window" value="Either"><span>Either</span></label>
+</div>
+</fieldset>
+
+<div class="field">
 <label for="f-time">Best time to reach you <span class="opt">(optional)</span></label>
 <input type="text" id="f-time" name="best_time" placeholder="Weekday mornings, after 5 PM, anytime">
 </div>
@@ -393,8 +416,8 @@ body{padding-bottom:calc(70px + env(safe-area-inset-bottom))}
 <textarea id="f-msg" name="message" placeholder="Stain on the bedroom ceiling, shingles in the yard after the storm, roof is 20 years old..."></textarea>
 </div>
 
-<p class="fine">Have photos? After you send this, text them to (817) 550-2339.</p>
-<p class="fine">By sending this form, you agree that KOG Roofing may call, text, or email you about your request. Your request goes to KOG only. Lead sites often pass your request to several roofers. We never sell or share it.</p>
+<p class="fine">Have photos? After you send this, <a href="sms:+18175502339?&amp;body=Hi%20KOG%20Roofing%2C%20here%27s%20a%20photo%20of%20my%20roof.%20My%20town%20is%3A%20">text them to (817) 550-2339</a>.</p>
+<p class="fine">By sending this form, you agree that KOG Roofing may call, text, or email you about your request. Your request goes to KOG only. We never sell or share it.</p>
 <p class="fine">Sent 7 AM to 7 PM, Monday through Saturday? You'll hear back within an hour.</p>
 
 <button type="submit" class="btn btn-navy submit">Send my request</button>
@@ -403,13 +426,13 @@ body{padding-bottom:calc(70px + env(safe-area-inset-bottom))}
 
 <div class="thanks" id="request-thanks" hidden tabindex="-1">
 <h2>Got it. Your request is in.</h2>
-<p>You'll hear back within an hour to set a time (7 AM to 7 PM, Monday through Saturday; sent after hours, first thing the next morning we're open). Have photos? Text them to <a href="tel:+18175502339">(817) 550-2339</a>.</p>
+<p>You'll hear back within an hour to confirm a time (7 AM to 7 PM, Monday through Saturday; sent after hours, first thing the next morning we're open). Have photos? Text them to <a href="tel:+18175502339">(817) 550-2339</a>.</p>
 <p>If water is coming in, don't wait: <a href="tel:+18175502339">call now</a>.</p>
 </div>
 
 <h2>What happens next</h2>
 <ol class="steps">
-<li><div><strong>We set a time</strong><p>We call or text you to set a time that works for you.</p></div></li>
+<li><div><strong>We confirm a time</strong><p>We call or text you to confirm the day you picked, or to set one that works for you.</p></div></li>
 <li><div><strong>The inspection</strong><p>We get on the roof, and in the attic when needed, and take photos and video of what we find.</p></div></li>
 <li><div><strong>Your written report</strong><p>Photos, the cause of any problem, and whether it needs a repair, a replacement, or nothing at all.</p></div></li>
 <li><div><strong>Your decision</strong><p>Take your time. No pressure, and the report is yours to keep either way.</p></div></li>
@@ -569,12 +592,32 @@ function kogForm(form, opts) {
   if (q.get("need") === "letter") form.need.value = "Roof certification letter ($175)";
   if (q.get("note") && !form.message.value) form.message.value = q.get("note").slice(0, 400);
 
+  // Inspection day: no past dates, and a note if someone picks a Sunday
+  var day = document.getElementById("f-day");
+  var dayHint = document.getElementById("f-day-hint");
+  var DAY_HINT = dayHint.textContent;
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  var now = new Date();
+  day.min = now.getFullYear() + "-" + pad(now.getMonth() + 1) + "-" + pad(now.getDate());
+  day.addEventListener("change", function () {
+    var d = day.value ? new Date(day.value + "T12:00:00") : null;
+    dayHint.textContent = d && d.getDay() === 0
+      ? "We're closed Sundays. Pick Monday through Saturday, or leave it and we'll set a day with you."
+      : DAY_HINT;
+  });
+  function niceDay(v) {
+    var d = new Date(v + "T12:00:00");
+    return isNaN(d) ? v : d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+  }
+
   kogForm(form, {
     status: document.getElementById("request-status"),
     thanks: document.getElementById("request-thanks"),
     subject: function (d) {
       return (d.water_coming_in ? "URGENT, water coming in: " : "Inspection request: ") +
-        (d.need || "Roof") + " at " + d.address;
+        (d.need || "Roof") + " at " + d.address +
+        (d.inspection_day ? " (wants " + niceDay(d.inspection_day) +
+          (d.inspection_window && d.inspection_window !== "Either" ? " " + d.inspection_window.toLowerCase() : "") + ")" : "");
     }
   });
 })();
