@@ -326,6 +326,7 @@ body{padding-bottom:calc(70px + env(safe-area-inset-bottom))}
 <p class="fine">Takes about a minute. Fields marked "optional" can be left blank.</p>
 
 <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<input type="hidden" name="referred_by" id="f-ref">
 
 <div class="field">
 <label for="f-name">Your name</label>
@@ -592,6 +593,18 @@ function kogForm(form, opts) {
   if (q.get("need") === "letter") form.need.value = "Roof certification letter ($175)";
   if (q.get("note") && !form.message.value) form.message.value = q.get("note").slice(0, 400);
 
+  // Partner links (free-inspection.html?ref=greg-rose) tag the request so the partner gets credit.
+  // The tag is kept on this device for 60 days in case they come back later to book.
+  var ref = String(q.get("ref") || "").toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 40);
+  try {
+    if (ref) localStorage.setItem("kog_ref", JSON.stringify({ ref: ref, at: Date.now() }));
+    else {
+      var kept = JSON.parse(localStorage.getItem("kog_ref") || "null");
+      if (kept && kept.ref && Date.now() - kept.at < 60 * 864e5) ref = String(kept.ref).replace(/[^a-z0-9-]/g, "").slice(0, 40);
+    }
+  } catch (e) {}
+  if (ref) form.referred_by.value = ref;
+
   // Inspection day: no past dates, and a note if someone picks a Sunday
   var day = document.getElementById("f-day");
   var dayHint = document.getElementById("f-day-hint");
@@ -617,7 +630,8 @@ function kogForm(form, opts) {
       return (d.water_coming_in ? "URGENT, water coming in: " : "Inspection request: ") +
         (d.need || "Roof") + " at " + d.address +
         (d.inspection_day ? " (wants " + niceDay(d.inspection_day) +
-          (d.inspection_window && d.inspection_window !== "Either" ? " " + d.inspection_window.toLowerCase() : "") + ")" : "");
+          (d.inspection_window && d.inspection_window !== "Either" ? " " + d.inspection_window.toLowerCase() : "") + ")" : "") +
+        (d.referred_by ? " · referred by " + d.referred_by : "");
     }
   });
 })();
