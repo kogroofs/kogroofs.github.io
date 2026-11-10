@@ -35,7 +35,7 @@ import hail_builder as hb
 
 MONTH_NAMES = ["January", "February", "March", "April", "May", "June", "July",
                "August", "September", "October", "November", "December"]
-NOT_TOWNS = ("commercial-roofing.html", "metal-roofing.html")
+NOT_TOWNS = ("commercial-roofing.html", "metal-roofing.html", "fortified-roofing.html")
 BIGGEST_SHOWN = 4
 
 # Towns that aren't a ZIP code city of their own: (lat, lon) and how the page says it.

@@ -54,7 +54,7 @@ def town_pages():
     """City name -> town page on the site, for linking."""
     pages = {}
     for name in os.listdir(hb.ROOT):
-        if name.endswith("-roofing.html") and name not in ("commercial-roofing.html", "metal-roofing.html"):
+        if name.endswith("-roofing.html") and name not in ("commercial-roofing.html", "metal-roofing.html", "fortified-roofing.html"):
             slug = name[:-len("-roofing.html")]
             pages[" ".join(w.capitalize() for w in slug.split("-"))] = name
     return pages
