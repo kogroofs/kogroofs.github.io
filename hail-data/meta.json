@@ -1,6 +1,6 @@
 {
  "v": 1,
- "checked": "2026-11-11T19:51Z",
+ "checked": "2026-11-12T20:02Z",
  "start": "2023-01-01",
  "latest_hail": "2026-11-02",
  "bbox": [
@@ -15,9 +15,5 @@
  "min_size": 0.75,
  "track_pieces": 46076,
  "ground_reports": 0,
- "warnings": [
-  "radar 2026-09 not updated (HTTP Error 500: )",
-  "radar 2026-10 not updated (HTTP Error 500: )",
-  "radar 2026-11 not updated (HTTP Error 500: )"
- ]
+ "warnings": []
 }
