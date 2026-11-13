@@ -11,6 +11,12 @@ of the page (header, styles, footer) is left alone.
 
 Prints "hail-report.html" when the report itself changed, so the nightly
 job knows to tell Bing about it. A new "checked" date alone doesn't count.
+
+The page's dateModified (schema) and its sitemap lastmod only move when the
+report itself changes (new hail, a new month). Google says not to give a page
+a fresh date unless real information was added, so a morning with no new
+hail keeps the old date. The visible "Last checked" line still updates daily,
+because that's simply true.
 """
 
 import html
@@ -202,7 +208,7 @@ def build_report(today, hits, pages):
     return "\n".join(parts)
 
 
-def schema(today, start):
+def schema(today, start, modified):
     data = {
         "@context": "https://schema.org",
         "@type": "Dataset",
@@ -221,7 +227,7 @@ def schema(today, start):
             "geo": {"@type": "GeoShape", "box": f"{hb.SOUTH} {hb.WEST} {hb.NORTH} {hb.EAST}"},
         },
         "variableMeasured": "Estimated maximum hail size (inches)",
-        "dateModified": today.isoformat(),
+        "dateModified": modified.isoformat(),
         "inLanguage": "en-US",
         "keywords": ["hail", "Dallas-Fort Worth", "hail map", "roof damage", "NEXRAD"],
     }
@@ -235,6 +241,27 @@ def swap(text, name, new):
         raise SystemExit(f"hail-report.html is missing its {name} markers; not changing it")
     old = pat.search(text).group(0)
     return pat.sub(lambda m: m.group(1) + "\n" + new + "\n" + m.group(2), text, count=1), old
+
+
+def old_modified(page):
+    """The dateModified already on the page, or None if it can't be read."""
+    m = re.search(r'"dateModified":\s*"(\d{4}-\d{2}-\d{2})"', page)
+    return date.fromisoformat(m.group(1)) if m else None
+
+
+def set_sitemap_date(day):
+    """Move the hail report's lastmod in sitemap.xml to this day."""
+    path = os.path.join(hb.ROOT, "sitemap.xml")
+    try:
+        with open(path, encoding="utf-8") as f:
+            text = f.read()
+    except OSError:
+        return
+    new = re.sub(r"(<loc>" + re.escape(URL) + r"</loc><lastmod>)[\d-]+(</lastmod>)",
+                 lambda m: m.group(1) + day.isoformat() + m.group(2), text)
+    if new != text:
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(new)
 
 
 def main():
@@ -252,13 +279,16 @@ def main():
         page = f.read()
     report = build_report(today, hits, town_pages())
     page, old_report = swap(page, "REPORT", report)
+    new_report = re.search(r"<!-- KOG:REPORT:START -->.*?<!-- KOG:REPORT:END -->", page, re.S).group(0)
+    changed = new_report != old_report
+    modified = today if changed else (old_modified(page) or today)
     page, _ = swap(page, "CHECKED", f"Updated every morning from NOAA weather radar. Last checked {long_date(today)}.")
-    page, _ = swap(page, "SCHEMA", schema(today, start))
+    page, _ = swap(page, "SCHEMA", schema(today, start, modified))
     with open(PAGE, "w", encoding="utf-8") as f:
         f.write(page)
 
-    new_report = re.search(r"<!-- KOG:REPORT:START -->.*?<!-- KOG:REPORT:END -->", page, re.S).group(0)
-    if new_report != old_report:
+    if changed:
+        set_sitemap_date(today)
         print("hail-report.html")
     print(f"hail report: {len(hits)} storm days since {start}", file=sys.stderr)
     return 0
