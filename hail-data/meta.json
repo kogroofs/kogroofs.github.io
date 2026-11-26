@@ -1,6 +1,6 @@
 {
  "v": 1,
- "checked": "2026-11-25T21:47Z",
+ "checked": "2026-11-26T21:40Z",
  "start": "2023-01-01",
  "latest_hail": "2026-11-02",
  "bbox": [
@@ -15,7 +15,5 @@
  "min_size": 0.75,
  "track_pieces": 46076,
  "ground_reports": 0,
- "warnings": [
-  "ground reports 2026-11-24: unexpected format []"
- ]
+ "warnings": []
 }
